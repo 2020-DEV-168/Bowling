@@ -13,7 +13,7 @@
 		C651F78D253D8A83003089CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C651F78B253D8A83003089CA /* Main.storyboard */; };
 		C651F78F253D8A84003089CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C651F78E253D8A84003089CA /* Assets.xcassets */; };
 		C651F792253D8A84003089CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C651F790253D8A84003089CA /* LaunchScreen.storyboard */; };
-		C651F79D253D8A85003089CA /* BowlingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C651F79C253D8A85003089CA /* BowlingTests.swift */; };
+		C651F79D253D8A85003089CA /* GameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C651F79C253D8A85003089CA /* GameTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +36,7 @@
 		C651F791253D8A84003089CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C651F793253D8A84003089CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C651F798253D8A85003089CA /* BowlingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BowlingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C651F79C253D8A85003089CA /* BowlingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BowlingTests.swift; sourceTree = "<group>"; };
+		C651F79C253D8A85003089CA /* GameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTests.swift; sourceTree = "<group>"; };
 		C651F79E253D8A85003089CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -93,7 +93,7 @@
 		C651F79B253D8A85003089CA /* BowlingTests */ = {
 			isa = PBXGroup;
 			children = (
-				C651F79C253D8A85003089CA /* BowlingTests.swift */,
+				C651F79C253D8A85003089CA /* GameTests.swift */,
 				C651F79E253D8A85003089CA /* Info.plist */,
 			);
 			path = BowlingTests;
@@ -209,7 +209,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C651F79D253D8A85003089CA /* BowlingTests.swift in Sources */,
+				C651F79D253D8A85003089CA /* GameTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
