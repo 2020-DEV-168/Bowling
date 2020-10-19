@@ -27,4 +27,14 @@ class GameTests: XCTestCase {
 
         XCTAssertEqual(game.totalScore(), expectedTotal)
     }
+
+    func testGameContainingOnlyFouls() {
+        let scores = "-- -- -- -- -- -- -- -- -- --"
+        let expectedTotal = 0
+
+        let game = Game(scores: scores)
+
+        XCTAssertEqual(game.totalScore(), expectedTotal)
+    }
+
 }
