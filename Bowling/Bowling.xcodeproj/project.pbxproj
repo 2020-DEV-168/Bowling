@@ -14,18 +14,10 @@
 		C651F78F253D8A84003089CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C651F78E253D8A84003089CA /* Assets.xcassets */; };
 		C651F792253D8A84003089CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C651F790253D8A84003089CA /* LaunchScreen.storyboard */; };
 		C651F79D253D8A85003089CA /* BowlingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C651F79C253D8A85003089CA /* BowlingTests.swift */; };
-		C651F7A8253D8A85003089CA /* BowlingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C651F7A7253D8A85003089CA /* BowlingUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		C651F799253D8A85003089CA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C651F77A253D8A83003089CA /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C651F781253D8A83003089CA;
-			remoteInfo = Bowling;
-		};
-		C651F7A4253D8A85003089CA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C651F77A253D8A83003089CA /* Project object */;
 			proxyType = 1;
@@ -46,9 +38,6 @@
 		C651F798253D8A85003089CA /* BowlingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BowlingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C651F79C253D8A85003089CA /* BowlingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BowlingTests.swift; sourceTree = "<group>"; };
 		C651F79E253D8A85003089CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C651F7A3253D8A85003089CA /* BowlingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BowlingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C651F7A7253D8A85003089CA /* BowlingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BowlingUITests.swift; sourceTree = "<group>"; };
-		C651F7A9253D8A85003089CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,13 +55,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C651F7A0253D8A85003089CA /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -81,7 +63,6 @@
 			children = (
 				C651F784253D8A83003089CA /* Bowling */,
 				C651F79B253D8A85003089CA /* BowlingTests */,
-				C651F7A6253D8A85003089CA /* BowlingUITests */,
 				C651F783253D8A83003089CA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -91,7 +72,6 @@
 			children = (
 				C651F782253D8A83003089CA /* Bowling.app */,
 				C651F798253D8A85003089CA /* BowlingTests.xctest */,
-				C651F7A3253D8A85003089CA /* BowlingUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -117,15 +97,6 @@
 				C651F79E253D8A85003089CA /* Info.plist */,
 			);
 			path = BowlingTests;
-			sourceTree = "<group>";
-		};
-		C651F7A6253D8A85003089CA /* BowlingUITests */ = {
-			isa = PBXGroup;
-			children = (
-				C651F7A7253D8A85003089CA /* BowlingUITests.swift */,
-				C651F7A9253D8A85003089CA /* Info.plist */,
-			);
-			path = BowlingUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -166,24 +137,6 @@
 			productReference = C651F798253D8A85003089CA /* BowlingTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		C651F7A2253D8A85003089CA /* BowlingUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = C651F7B2253D8A85003089CA /* Build configuration list for PBXNativeTarget "BowlingUITests" */;
-			buildPhases = (
-				C651F79F253D8A85003089CA /* Sources */,
-				C651F7A0253D8A85003089CA /* Frameworks */,
-				C651F7A1253D8A85003089CA /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				C651F7A5253D8A85003089CA /* PBXTargetDependency */,
-			);
-			name = BowlingUITests;
-			productName = BowlingUITests;
-			productReference = C651F7A3253D8A85003089CA /* BowlingUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -197,10 +150,6 @@
 						CreatedOnToolsVersion = 12.0;
 					};
 					C651F797253D8A85003089CA = {
-						CreatedOnToolsVersion = 12.0;
-						TestTargetID = C651F781253D8A83003089CA;
-					};
-					C651F7A2253D8A85003089CA = {
 						CreatedOnToolsVersion = 12.0;
 						TestTargetID = C651F781253D8A83003089CA;
 					};
@@ -221,7 +170,6 @@
 			targets = (
 				C651F781253D8A83003089CA /* Bowling */,
 				C651F797253D8A85003089CA /* BowlingTests */,
-				C651F7A2253D8A85003089CA /* BowlingUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -238,13 +186,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		C651F796253D8A85003089CA /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C651F7A1253D8A85003089CA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -272,14 +213,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C651F79F253D8A85003089CA /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C651F7A8253D8A85003089CA /* BowlingUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -287,11 +220,6 @@
 			isa = PBXTargetDependency;
 			target = C651F781253D8A83003089CA /* Bowling */;
 			targetProxy = C651F799253D8A85003089CA /* PBXContainerItemProxy */;
-		};
-		C651F7A5253D8A85003089CA /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = C651F781253D8A83003089CA /* Bowling */;
-			targetProxy = C651F7A4253D8A85003089CA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -509,44 +437,6 @@
 			};
 			name = Release;
 		};
-		C651F7B3253D8A85003089CA /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = BowlingUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "be.2020-DEV-168.BowlingUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Bowling;
-			};
-			name = Debug;
-		};
-		C651F7B4253D8A85003089CA /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = BowlingUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "be.2020-DEV-168.BowlingUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Bowling;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -573,15 +463,6 @@
 			buildConfigurations = (
 				C651F7B0253D8A85003089CA /* Debug */,
 				C651F7B1253D8A85003089CA /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		C651F7B2253D8A85003089CA /* Build configuration list for PBXNativeTarget "BowlingUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C651F7B3253D8A85003089CA /* Debug */,
-				C651F7B4253D8A85003089CA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
