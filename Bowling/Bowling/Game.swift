@@ -9,9 +9,28 @@ import Foundation
 
 class Game {
 
-    init(scores: String) {}
+    private let frames: [String]
+
+    init(scores: String) {
+        self.frames = scores
+            .split(separator: Constants.framesSeparator)
+            .map { String($0) }
+    }
 
     func totalScore() -> Int {
-        return 0
+        var total: Int = 0
+
+        for frame in frames {
+            let firstThrow = Int(frame.dropLast()) ?? 0
+            let secondThrow = Int(frame.dropFirst()) ?? 0
+            total = total + firstThrow + secondThrow
+        }
+
+        return total
     }
+}
+
+private enum Constants {
+
+    static let framesSeparator: Character = " "
 }
