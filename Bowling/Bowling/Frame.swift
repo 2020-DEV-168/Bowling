@@ -24,11 +24,11 @@ struct Frame {
     }
 
     var secondRoll: Roll? {
-        return rolls[1]
+        return rolls.count > 1 ? rolls[1] : nil
     }
 
     var thirdRoll: Roll? {
-        return rolls[2]
+        return rolls.count == 3 ? rolls[2] : nil
     }
 
     var rolls = [Roll]()
