@@ -19,7 +19,7 @@ class GameTests: XCTestCase {
         XCTAssertEqual(game.totalScore(), expectedTotal)
     }
 
-    func testGameContainingNumbersAndFouls() {
+    func testGameContainingNumbersAndGutters() {
         let scores = "9- 9- 9- 9- 9- 9- 9- 9- 9- 9-"
         let expectedTotal = 90
 
@@ -37,7 +37,7 @@ class GameTests: XCTestCase {
         XCTAssertEqual(game.totalScore(), expectedTotal)
     }
 
-    func testGameContainingOnlyFouls() {
+    func testGameContainingOnlyGutters() {
         let scores = "-- -- -- -- -- -- -- -- -- --"
         let expectedTotal = 0
 
