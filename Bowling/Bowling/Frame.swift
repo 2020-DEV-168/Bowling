@@ -59,9 +59,9 @@ private extension Frame {
         var rolls = [Roll]()
 
         let firstPinCount = pinCount(for: scores.first!)
-        rolls.append(Roll(pinCount: firstPinCount, symbol: scores.symbol(at: 0)))
+        rolls.append(Roll(pinCount: firstPinCount, symbol: scores.character(at: 0)))
 
-        let secondSymbol = scores.symbol(at: 1)
+        let secondSymbol = scores.character(at: 1)
         if secondSymbol == "/" {
             rolls.append(Roll(pinCount: 10 - firstPinCount, symbol: secondSymbol))
         } else {
@@ -75,9 +75,9 @@ private extension Frame {
         var rolls = [Roll]()
 
         let firstPinCount = pinCount(for: scores.first!)
-        rolls.append(Roll(pinCount: firstPinCount, symbol: scores.symbol(at: 0)))
+        rolls.append(Roll(pinCount: firstPinCount, symbol: scores.character(at: 0)))
 
-        let secondSymbol = scores.symbol(at: 1)
+        let secondSymbol = scores.character(at: 1)
         switch secondSymbol {
         case "/":
             rolls.append(Roll(pinCount: 10 - firstPinCount, symbol: secondSymbol))
@@ -87,10 +87,10 @@ private extension Frame {
             rolls.append(Roll(pinCount: pinCount(for: secondSymbol), symbol: secondSymbol))
         }
 
-        let thirdSymbol = scores.symbol(at: 2)
+        let thirdSymbol = scores.character(at: 2)
         switch thirdSymbol {
         case "/":
-            let secondPinCount = pinCount(for: scores.symbol(at: 1))
+            let secondPinCount = pinCount(for: scores.character(at: 1))
             rolls.append(Roll(pinCount: 10 - secondPinCount, symbol: thirdSymbol))
         case "X":
             rolls.append(Roll(pinCount: 10, symbol: thirdSymbol))
@@ -115,7 +115,7 @@ private extension Frame {
 
 private extension String {
 
-    func symbol(at position: Int) -> Character {
+    func character(at position: Int) -> Character {
         guard position < count else { return Character("") }
 
         let index = self.index(startIndex, offsetBy: position)
