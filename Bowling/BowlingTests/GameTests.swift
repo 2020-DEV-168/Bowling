@@ -19,6 +19,15 @@ class GameTests: XCTestCase {
         XCTAssertEqual(game.totalScore(), expectedTotal)
     }
 
+    func testGameContainingOnlyGutters() {
+        let rolls = "-- -- -- -- -- -- -- -- -- --"
+        let expectedTotal = 0
+
+        let game = Game(rolls: rolls)
+
+        XCTAssertEqual(game.totalScore(), expectedTotal)
+    }
+
     func testGameContainingNumbersAndGutters() {
         let rolls = "9- 9- 9- 9- 9- 9- 9- 9- 9- 9-"
         let expectedTotal = 90
@@ -36,14 +45,4 @@ class GameTests: XCTestCase {
 
         XCTAssertEqual(game.totalScore(), expectedTotal)
     }
-
-    func testGameContainingOnlyGutters() {
-        let rolls = "-- -- -- -- -- -- -- -- -- --"
-        let expectedTotal = 0
-
-        let game = Game(rolls: rolls)
-
-        XCTAssertEqual(game.totalScore(), expectedTotal)
-    }
-
 }
