@@ -7,12 +7,6 @@
 
 import Foundation
 
-struct Roll {
-
-    let pinCount: Int
-    let symbol: Character
-}
-
 struct Frame {
 
     let isLastFrame: Bool
