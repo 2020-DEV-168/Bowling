@@ -44,6 +44,19 @@ private extension Game {
         }
     }
 
+    func computeLastFrameScore() -> Int {
+        let frame = frames[frames.count - 1]
+
+        return frame.map { character in
+            switch character {
+            case Constants.spare, Constants.strike:
+                return Constants.bonusScore
+            default:
+                return Int(String(character)) ?? 0
+            }
+        }.reduce(0, +)
+    }
+
     func isSpare(_ frame: String) -> Bool {
         return frame.contains(Constants.spare)
     }
@@ -51,7 +64,7 @@ private extension Game {
     func computeSpareScore(at index: Int) -> Int {
         var frameScore = Constants.bonusScore
         if let nextFrame = nextFrame(after: index) {
-            frameScore += nextFrame.firstAsInt
+            frameScore += nextFrame.intValue(at: 0)
         }
         return frameScore
     }
@@ -69,15 +82,21 @@ private enum Constants {
 
     static let framesSeparator: Character = " "
     static let spare: Character = "/"
+    static let strike: Character = "X"
     static let bonusScore: Int = 10
 }
 
 private extension String {
 
-    var firstAsInt: Int {
-        if let character = first {
+    func intValue(at index: Int) -> Int {
+        let position = self.index(startIndex, offsetBy: index + 1)
+        let character = self[position]
+        switch character {
+        case "1"..."9":
             return Int(String(character))!
-        } else {
+        case Constants.strike:
+            return 10
+        default:
             return 0
         }
     }
