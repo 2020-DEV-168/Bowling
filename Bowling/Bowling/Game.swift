@@ -20,10 +20,10 @@ class Game {
     func totalScore() -> Int {
         var total: Int = 0
 
-        for frame in frames {
-            let frameScore = computeFrameScore(for: frame)
+        for index in 0...frames.count - 1 {
+            let frameScore = computeFrameScore(at: index)
             total += frameScore
-            print("[\(total)] \(frameScore) for \(frame)")
+            print("[\(total)] \(frameScore) for \(frames[index])")
         }
 
         return total
@@ -32,9 +32,11 @@ class Game {
 
 private extension Game {
 
-    func computeFrameScore(for frame: String) -> Int {
+    func computeFrameScore(at index: Int) -> Int {
+        let frame = frames[index]
+
         if isSpare(frame) {
-            return computeSpareScore(for: frame)
+            return computeSpareScore(at: index)
         } else {
             let firstThrow = Int(frame.dropLast()) ?? 0
             let secondThrow = Int(frame.dropFirst()) ?? 0
@@ -46,7 +48,7 @@ private extension Game {
         return frame.contains(Constants.spare)
     }
 
-    func computeSpareScore(for frame: String) -> Int {
+    func computeSpareScore(at index: Int) -> Int {
         return 0
     }
 
