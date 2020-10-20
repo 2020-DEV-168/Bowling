@@ -9,12 +9,12 @@ import Foundation
 
 class Game {
 
-    private let frames: [String]
+    private let frames: [Frame]
 
     init(rolls: String) {
         self.frames = rolls
             .split(separator: Constants.framesSeparator)
-            .map { String($0) }
+            .map { Frame(scores: String($0)) }
     }
 
     func totalScore() -> Int {
@@ -38,38 +38,27 @@ private extension Game {
         if isSpare(frame) {
             return computeSpareScore(at: index)
         } else {
-            let firstThrow = Int(frame.dropLast()) ?? 0
-            let secondThrow = Int(frame.dropFirst()) ?? 0
-            return firstThrow + secondThrow
+            return frame.pinCount
         }
     }
 
     func computeLastFrameScore() -> Int {
-        let frame = frames[frames.count - 1]
-
-        return frame.map { character in
-            switch character {
-            case Constants.spare, Constants.strike:
-                return Constants.bonusScore
-            default:
-                return Int(String(character)) ?? 0
-            }
-        }.reduce(0, +)
+        return frames.last!.pinCount
     }
 
-    func isSpare(_ frame: String) -> Bool {
-        return frame.contains(Constants.spare)
+    func isSpare(_ frame: Frame) -> Bool {
+        return frame.secondRoll?.symbol == Constants.spare
     }
 
     func computeSpareScore(at index: Int) -> Int {
         var frameScore = Constants.bonusScore
         if let nextFrame = nextFrame(after: index) {
-            frameScore += nextFrame.intValue(at: 0)
+            frameScore += nextFrame.firstRoll.pinCount
         }
         return frameScore
     }
 
-    func nextFrame(after index: Int) -> String? {
+    func nextFrame(after index: Int) -> Frame? {
         if index < frames.count - 1 {
             return frames[index + 1]
         } else {
