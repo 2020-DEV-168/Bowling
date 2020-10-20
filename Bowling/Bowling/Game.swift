@@ -36,25 +36,14 @@ private extension Game {
     func computeFrameScore(at index: Int) -> Int {
         let frame = frames[index]
 
-        if frame.isLastFrame {
-            return frame.pinCount
-        } else {
-            if isSpare(frame) {
-                return computeSpareScore(at: index)
-            }
-            if isStrike(frame) {
-                return computeStrikeScore(at: index)
-            }
+        switch frame.frameType {
+        case .spare:
+            return computeSpareScore(at: index)
+        case .strike:
+            return computeStrikeScore(at: index)
+        case .normal, .lastFrame:
             return frame.pinCount
         }
-    }
-
-    func isSpare(_ frame: Frame) -> Bool {
-        return frame.secondRoll?.symbol == Constants.spare
-    }
-
-    func isStrike(_ frame: Frame) -> Bool {
-        return frame.firstRoll.symbol == Constants.strike
     }
 
     func computeSpareScore(at index: Int) -> Int {
@@ -71,14 +60,14 @@ private extension Game {
         var frameScore = Constants.bonusScore
 
         if let nextFrame = nextFrame(after: index) {
-            switch nextFrame.firstRoll.symbol {
-            case Constants.strike:
+            switch nextFrame.frameType {
+            case .strike:
                 if let overFrame = self.nextFrame(after: index + 1) {
                     frameScore += nextFrame.pinCount + overFrame.pinCount
                 } else {
                     frameScore += nextFrame.pinCount
                 }
-            case Constants.spare:
+            case .spare:
                 frameScore += nextFrame.firstRoll.pinCount
             default:
                 frameScore += nextFrame.pinCount
