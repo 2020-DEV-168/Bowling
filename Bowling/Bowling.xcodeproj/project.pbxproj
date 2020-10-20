@@ -92,9 +92,9 @@
 				C651F78E253D8A84003089CA /* Assets.xcassets */,
 				C651F790253D8A84003089CA /* LaunchScreen.storyboard */,
 				C651F793253D8A84003089CA /* Info.plist */,
-				C6A32D05253DB6470038EA27 /* Game.swift */,
-				C6AE969C253F0B20003243A2 /* Frame.swift */,
 				C6AE96A2253F2B2E003243A2 /* Roll.swift */,
+				C6AE969C253F0B20003243A2 /* Frame.swift */,
+				C6A32D05253DB6470038EA27 /* Game.swift */,
 			);
 			path = Bowling;
 			sourceTree = "<group>";

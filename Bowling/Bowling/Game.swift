@@ -24,9 +24,7 @@ class Game {
         var total: Int = 0
 
         for index in 0...frames.count - 1 {
-            let frameScore = computeFrameScore(at: index)
-            total += frameScore
-            print("[\(total)] \(frameScore) for \(frames[index])")
+            total += computeFrameScore(at: index)
         }
 
         return total
@@ -61,14 +59,17 @@ private extension Game {
 
     func computeSpareScore(at index: Int) -> Int {
         var frameScore = Constants.bonusScore
+
         if let nextFrame = nextFrame(after: index) {
             frameScore += nextFrame.firstRoll.pinCount
         }
+
         return frameScore
     }
 
     func computeStrikeScore(at index: Int) -> Int {
         var frameScore = Constants.bonusScore
+
         if let nextFrame = nextFrame(after: index) {
             switch nextFrame.firstRoll.symbol {
             case Constants.strike:
@@ -83,7 +84,8 @@ private extension Game {
                 frameScore += nextFrame.pinCount
             }
         }
-        return min(frameScore, 30)
+
+        return min(frameScore, Constants.maximumScorePerFrame)
     }
 
     func nextFrame(after index: Int) -> Frame? {
@@ -98,23 +100,6 @@ private extension Game {
 private enum Constants {
 
     static let rollsSeparator: Character = " "
-    static let spare: Character = "/"
-    static let strike: Character = "X"
-    static let bonusScore: Int = 10
-}
-
-private extension String {
-
-    func intValue(at index: Int) -> Int {
-        let position = self.index(startIndex, offsetBy: index + 1)
-        let character = self[position]
-        switch character {
-        case "1"..."9":
-            return Int(String(character))!
-        case Constants.strike:
-            return 10
-        default:
-            return 0
-        }
-    }
+    static let bonusScore = 10
+    static let maximumScorePerFrame = 30
 }
