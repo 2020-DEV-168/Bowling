@@ -33,13 +33,27 @@ class Game {
 private extension Game {
 
     func computeFrameScore(for frame: String) -> Int {
-        let firstThrow = Int(frame.dropLast()) ?? 0
-        let secondThrow = Int(frame.dropFirst()) ?? 0
-        return firstThrow + secondThrow
+        if isSpare(frame) {
+            return computeSpareScore(for: frame)
+        } else {
+            let firstThrow = Int(frame.dropLast()) ?? 0
+            let secondThrow = Int(frame.dropFirst()) ?? 0
+            return firstThrow + secondThrow
+        }
     }
+
+    func isSpare(_ frame: String) -> Bool {
+        return frame.contains(Constants.spare)
+    }
+
+    func computeSpareScore(for frame: String) -> Int {
+        return 0
+    }
+
 }
 
 private enum Constants {
 
     static let framesSeparator: Character = " "
+    static let spare: Character = "/"
 }
