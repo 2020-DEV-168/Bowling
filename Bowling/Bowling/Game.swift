@@ -74,7 +74,7 @@ private extension Game {
 
 private enum Constants {
 
-    static let framesSeparator: Character = " "
+    static let rollsSeparator: Character = " "
     static let spare: Character = "/"
     static let strike: Character = "X"
     static let bonusScore: Int = 10
