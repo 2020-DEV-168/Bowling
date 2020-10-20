@@ -80,7 +80,7 @@ private extension Frame {
         rolls.append(Roll(pinCount: firstPinCount, symbol: scores.character(at: 0)))
 
         let secondSymbol = scores.character(at: 1)
-        if secondSymbol == "/" {
+        if secondSymbol == Constants.spare {
             rolls.append(Roll(pinCount: 10 - firstPinCount, symbol: secondSymbol))
         } else {
             rolls.append(Roll(pinCount: pinCount(for: secondSymbol), symbol: secondSymbol))
@@ -97,9 +97,9 @@ private extension Frame {
 
         let secondSymbol = scores.character(at: 1)
         switch secondSymbol {
-        case "/":
+        case Constants.spare:
             rolls.append(Roll(pinCount: 10 - firstPinCount, symbol: secondSymbol))
-        case "X":
+        case Constants.strike:
             rolls.append(Roll(pinCount: 10, symbol: secondSymbol))
         default:
             rolls.append(Roll(pinCount: pinCount(for: secondSymbol), symbol: secondSymbol))
@@ -107,10 +107,10 @@ private extension Frame {
 
         let thirdSymbol = scores.character(at: 2)
         switch thirdSymbol {
-        case "/":
+        case Constants.spare:
             let secondPinCount = pinCount(for: scores.character(at: 1))
             rolls.append(Roll(pinCount: 10 - secondPinCount, symbol: thirdSymbol))
-        case "X":
+        case Constants.strike:
             rolls.append(Roll(pinCount: 10, symbol: thirdSymbol))
         default:
             rolls.append(Roll(pinCount: pinCount(for: thirdSymbol), symbol: thirdSymbol))
@@ -123,7 +123,7 @@ private extension Frame {
         switch score {
         case "1"..."9":
             return score.wholeNumberValue!
-        case "X":
+        case Constants.strike:
             return 10
         default:
             return 0

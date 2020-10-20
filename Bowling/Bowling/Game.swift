@@ -7,14 +7,13 @@
 
 class Game {
 
-    private var frames = [Frame]()
+    var frames = [Frame]()
 
-    init(rolls: String) {
-        let allRolls = rolls
-            .split(separator: Constants.rollsSeparator)
+    init(scores: String) {
+        let allScores = scores.split(separator: Constants.scoresSeparator)
 
-        let firstFrames = allRolls[0...8].map { Frame(scores: String($0)) }
-        let lastFrame = Frame(scores: allRolls[9...].joined(), isLastFrame: true)
+        let firstFrames = allScores[0...8].map { Frame(scores: String($0)) }
+        let lastFrame = Frame(scores: allScores[9...].joined(), isLastFrame: true)
 
         frames.append(contentsOf: firstFrames)
         frames.append(lastFrame)
@@ -88,7 +87,7 @@ private extension Game {
 
 private enum Constants {
 
-    static let rollsSeparator: Character = " "
+    static let scoresSeparator: Character = " "
     static let bonusScore = 10
     static let maximumScorePerFrame = 30
 }

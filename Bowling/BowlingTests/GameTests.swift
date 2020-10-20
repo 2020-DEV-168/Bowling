@@ -11,55 +11,55 @@ import XCTest
 class GameTests: XCTestCase {
 
     func testGameContainingOnlyNumbers() {
-        let rolls = "17 23 81 23 44 51 61 71 25 61"
+        let scores = "17 23 81 23 44 51 61 71 25 61"
         let expectedTotal = 70
 
-        let game = Game(rolls: rolls)
+        let game = Game(scores: scores)
 
         XCTAssertEqual(game.totalScore(), expectedTotal)
     }
 
     func testGameContainingOnlyGutters() {
-        let rolls = "-- -- -- -- -- -- -- -- -- --"
+        let scores = "-- -- -- -- -- -- -- -- -- --"
         let expectedTotal = 0
 
-        let game = Game(rolls: rolls)
+        let game = Game(scores: scores)
 
         XCTAssertEqual(game.totalScore(), expectedTotal)
     }
 
     func testGameContainingNumbersAndGutters() {
-        let rolls = "9- 9- 9- 9- 9- 9- 9- 9- 9- 9-"
+        let scores = "9- 9- 9- 9- 9- 9- 9- 9- 9- 9-"
         let expectedTotal = 90
 
-        let game = Game(rolls: rolls)
+        let game = Game(scores: scores)
 
         XCTAssertEqual(game.totalScore(), expectedTotal)
     }
 
     func testGameContainingSpares() {
-        let rolls = "5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/5"
+        let scores = "5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/5"
         let expectedTotal = 150
 
-        let game = Game(rolls: rolls)
+        let game = Game(scores: scores)
 
         XCTAssertEqual(game.totalScore(), expectedTotal)
     }
 
     func testGameContainingOnlyStrikes() {
-        let rolls = "X X X X X X X X X X X X"
+        let scores = "X X X X X X X X X X X X"
         let expectedTotal = 300
 
-        let game = Game(rolls: rolls)
+        let game = Game(scores: scores)
 
         XCTAssertEqual(game.totalScore(), expectedTotal)
     }
 
     func testGameContainingMixedResults() {
-        let rolls = "12 X 7- 3/ 2- X X 71 2/ X X X"
+        let scores = "12 X 7- 3/ 2- X X 71 2/ X X X"
         let expectedTotal = 144
 
-        let game = Game(rolls: rolls)
+        let game = Game(scores: scores)
 
         XCTAssertEqual(game.totalScore(), expectedTotal)
     }
