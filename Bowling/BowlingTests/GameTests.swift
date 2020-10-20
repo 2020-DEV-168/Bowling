@@ -45,4 +45,13 @@ class GameTests: XCTestCase {
 
         XCTAssertEqual(game.totalScore(), expectedTotal)
     }
+
+    func testGameContainingOnlyStrikes() {
+        let rolls = "X X X X X X X X X X X X"
+        let expectedTotal = 300
+
+        let game = Game(rolls: rolls)
+
+        XCTAssertEqual(game.totalScore(), expectedTotal)
+    }
 }
