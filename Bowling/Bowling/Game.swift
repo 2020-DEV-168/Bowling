@@ -9,12 +9,17 @@ import Foundation
 
 class Game {
 
-    private let frames: [Frame]
+    private var frames = [Frame]()
 
     init(rolls: String) {
-        self.frames = rolls
-            .split(separator: Constants.framesSeparator)
-            .map { Frame(scores: String($0)) }
+        let allRolls = rolls
+            .split(separator: Constants.rollsSeparator)
+
+        let firstFrames = allRolls[0...8].map { Frame(scores: String($0)) }
+        let lastFrame = Frame(scores: allRolls[9...].joined(), isLastFrame: true)
+
+        frames.append(contentsOf: firstFrames)
+        frames.append(lastFrame)
     }
 
     func totalScore() -> Int {
