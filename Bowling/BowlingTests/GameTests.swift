@@ -23,6 +23,15 @@ class GameTests: XCTestCase {
         let scores = "9- 9- 9- 9- 9- 9- 9- 9- 9- 9-"
         let expectedTotal = 90
 
+        let game = Game(rolls: rolls)
+
+        XCTAssertEqual(game.totalScore(), expectedTotal)
+    }
+
+    func testGameContainingSpares() {
+        let scores = "5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/5"
+        let expectedTotal = 150
+
         let game = Game(scores: scores)
 
         XCTAssertEqual(game.totalScore(), expectedTotal)
