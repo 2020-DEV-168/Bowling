@@ -47,10 +47,6 @@ private extension Game {
         }
     }
 
-    func computeLastFrameScore() -> Int {
-        return frames.last!.pinCount
-    }
-
     func isSpare(_ frame: Frame) -> Bool {
         return frame.secondRoll?.symbol == Constants.spare
     }
