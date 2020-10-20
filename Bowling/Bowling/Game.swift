@@ -49,13 +49,36 @@ private extension Game {
     }
 
     func computeSpareScore(at index: Int) -> Int {
-        return 0
+        var frameScore = Constants.bonusScore
+        if let nextFrame = nextFrame(after: index) {
+            frameScore += nextFrame.firstAsInt
+        }
+        return frameScore
     }
 
+    func nextFrame(after index: Int) -> String? {
+        if index < frames.count - 1 {
+            return frames[index + 1]
+        } else {
+            return nil
+        }
+    }
 }
 
 private enum Constants {
 
     static let framesSeparator: Character = " "
     static let spare: Character = "/"
+    static let bonusScore: Int = 10
+}
+
+private extension String {
+
+    var firstAsInt: Int {
+        if let character = first {
+            return Int(String(character))!
+        } else {
+            return 0
+        }
+    }
 }
