@@ -54,4 +54,13 @@ class GameTests: XCTestCase {
 
         XCTAssertEqual(game.totalScore(), expectedTotal)
     }
+
+    func testGameContainingMixedResults() {
+        let rolls = "12 X 7- 3/ 2- X X 71 2/ X X X"
+        let expectedTotal = 144
+
+        let game = Game(rolls: rolls)
+
+        XCTAssertEqual(game.totalScore(), expectedTotal)
+    }
 }
