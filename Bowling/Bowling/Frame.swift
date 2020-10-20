@@ -11,8 +11,6 @@ struct Frame {
         case normal, spare, strike, lastFrame
     }
 
-    let isLastFrame: Bool
-
     var frameType: FrameType {
         if isLastFrame {
             return .lastFrame
@@ -45,6 +43,7 @@ struct Frame {
     }
 
     private var rolls = [Roll]()
+    private let isLastFrame: Bool
 
     init(
         scores: String,
