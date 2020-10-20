@@ -11,8 +11,8 @@ class Game {
 
     private let frames: [String]
 
-    init(scores: String) {
-        self.frames = scores
+    init(rolls: String) {
+        self.frames = rolls
             .split(separator: Constants.framesSeparator)
             .map { String($0) }
     }
