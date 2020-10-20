@@ -5,8 +5,6 @@
 //  Created by 2020-DEV-168 on 20/10/2020.
 //
 
-import Foundation
-
 struct Frame {
 
     let isLastFrame: Bool
