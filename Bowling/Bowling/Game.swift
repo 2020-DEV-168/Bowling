@@ -40,7 +40,7 @@ private extension Game {
     func computeFrameScore(at index: Int) -> Int {
         let frame = frames[index]
 
-        if isSpare(frame) {
+        if isSpare(frame) && !frame.isLastFrame {
             return computeSpareScore(at: index)
         } else {
             return frame.pinCount
