@@ -7,7 +7,26 @@
 
 struct Frame {
 
+    enum FrameType {
+        case normal, spare, strike, lastFrame
+    }
+
     let isLastFrame: Bool
+
+    var frameType: FrameType {
+        if isLastFrame {
+            return .lastFrame
+        } else {
+            switch rolls.count {
+            case 1:
+                return firstRoll.symbol == Constants.strike ? .strike : .normal
+            case 2:
+                return secondRoll?.symbol == Constants.spare ? .spare : .normal
+            default:
+                return .normal
+            }
+        }
+    }
 
     var pinCount: Int {
         return rolls.map { $0.pinCount }.reduce(0, +)
@@ -121,4 +140,10 @@ private extension String {
         let index = self.index(startIndex, offsetBy: position)
         return self[index]
     }
+}
+
+private enum Constants {
+
+    static let spare: Character = "/"
+    static let strike: Character = "X"
 }
