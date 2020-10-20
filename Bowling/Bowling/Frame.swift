@@ -31,7 +31,7 @@ struct Frame {
         return rolls.count == 3 ? rolls[2] : nil
     }
 
-    var rolls = [Roll]()
+    private var rolls = [Roll]()
 
     init(scores: String) {
         rolls = createRolls(with: scores)
