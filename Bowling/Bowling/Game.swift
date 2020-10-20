@@ -21,12 +21,21 @@ class Game {
         var total: Int = 0
 
         for frame in frames {
-            let firstThrow = Int(frame.dropLast()) ?? 0
-            let secondThrow = Int(frame.dropFirst()) ?? 0
-            total = total + firstThrow + secondThrow
+            let frameScore = computeFrameScore(for: frame)
+            total += frameScore
+            print("[\(total)] \(frameScore) for \(frame)")
         }
 
         return total
+    }
+}
+
+private extension Game {
+
+    func computeFrameScore(for frame: String) -> Int {
+        let firstThrow = Int(frame.dropLast()) ?? 0
+        let secondThrow = Int(frame.dropFirst()) ?? 0
+        return firstThrow + secondThrow
     }
 }
 
