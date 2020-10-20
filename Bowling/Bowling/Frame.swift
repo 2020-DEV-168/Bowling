@@ -15,6 +15,8 @@ struct Roll {
 
 struct Frame {
 
+    let isLastFrame: Bool
+
     var pinCount: Int {
         return rolls.map { $0.pinCount }.reduce(0, +)
     }
@@ -33,7 +35,10 @@ struct Frame {
 
     private var rolls = [Roll]()
 
-    init(scores: String) {
+    init(
+        scores: String,
+        isLastFrame: Bool = false) {
+        self.isLastFrame = isLastFrame
         rolls = createRolls(with: scores)
     }
 }
