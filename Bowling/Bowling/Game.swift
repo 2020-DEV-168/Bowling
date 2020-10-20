@@ -63,7 +63,7 @@ private extension Game {
             switch nextFrame.frameType {
             case .strike:
                 if let overFrame = self.nextFrame(after: index + 1) {
-                    frameScore += nextFrame.pinCount + overFrame.pinCount
+                    frameScore += nextFrame.pinCount + overFrame.firstRoll.pinCount
                 } else {
                     frameScore += nextFrame.pinCount
                 }
