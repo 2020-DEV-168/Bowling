@@ -43,8 +43,7 @@ extension GameViewController: UITableViewDataSource, UITableViewDelegate {
 
         totalLabel?.text = "Total: \(game.totalScore)"
         let frame = game.frames[indexPath.row]
-        updateCell(cell, with: frame, frameNumber: indexPath.row + 1)
-
+        cell.update(with: frame, frameNumber: indexPath.row + 1)
         return cell
     }
 }
@@ -54,37 +53,6 @@ extension GameViewController: GamePresenterDelegate {
     func display(game: Game) {
         self.game = game
         tableView.reloadData()
-    }
-}
-
-private extension GameViewController {
-
-    func updateCell(_ cell: FrameCell, with frame: Frame, frameNumber: Int) {
-        cell.frameTitle.text = "- \(frameNumber) -"
-        cell.score?.text = String(frame.score)
-        updateSlot(cell.firstSlot, with: frame.firstRoll.symbol)
-        updateSlot(cell.secondSlot, with: frame.secondRoll?.symbol)
-        updateSlot(cell.thirdSlot, with: frame.thirdRoll?.symbol)
-        applyBackground(in: cell, for: frameNumber)
-    }
-
-    func updateSlot(_ slot: UILabel?, with symbol: Character?) {
-        if let symbol = symbol {
-            slot?.text = String(symbol)
-            slot?.superview?.isHidden = false
-        } else {
-            slot?.text = nil
-            slot?.superview?.isHidden = true
-        }
-    }
-
-    func applyBackground(in cell: FrameCell, for frameNumber: Int) {
-        cell.frameCellBackgroundView?.alpha = CGFloat(0.25)
-        if frameNumber % 2 == 0 {
-            cell.frameCellBackgroundView.backgroundColor = .gray
-        } else {
-            cell.frameCellBackgroundView.backgroundColor = .lightGray
-        }
     }
 }
 
