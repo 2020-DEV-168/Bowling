@@ -93,31 +93,29 @@ private extension Frame {
     func createTripleRolls(with scores: String) -> [Roll] {
         var rolls = [Roll]()
 
-        let firstPinCount = pinCount(for: scores.first!)
-        rolls.append(Roll(pinCount: firstPinCount, symbol: scores.character(at: 0)))
+        let firstSymbol = scores.character(at: 0)
+        let firstPinCount = pinCount(for: firstSymbol)
+        rolls.append(Roll(pinCount: firstPinCount, symbol: firstSymbol))
 
         let secondSymbol = scores.character(at: 1)
-        switch secondSymbol {
-        case Constants.spare:
-            rolls.append(Roll(pinCount: 10 - firstPinCount, symbol: secondSymbol))
-        case Constants.strike:
-            rolls.append(Roll(pinCount: 10, symbol: secondSymbol))
-        default:
-            rolls.append(Roll(pinCount: pinCount(for: secondSymbol), symbol: secondSymbol))
-        }
+        let secondPinCount = pinCount(for: secondSymbol)
+        rolls.append(createRoll(for: secondSymbol, previousPinCount: firstPinCount))
 
         let thirdSymbol = scores.character(at: 2)
-        switch thirdSymbol {
-        case Constants.spare:
-            let secondPinCount = pinCount(for: scores.character(at: 1))
-            rolls.append(Roll(pinCount: 10 - secondPinCount, symbol: thirdSymbol))
-        case Constants.strike:
-            rolls.append(Roll(pinCount: 10, symbol: thirdSymbol))
-        default:
-            rolls.append(Roll(pinCount: pinCount(for: thirdSymbol), symbol: thirdSymbol))
-        }
+        rolls.append(createRoll(for: thirdSymbol, previousPinCount: secondPinCount))
 
         return rolls
+    }
+
+    func createRoll(for symbol: Character, previousPinCount: Int) -> Roll {
+        switch symbol {
+        case Constants.spare:
+            return Roll(pinCount: 10 - previousPinCount, symbol: symbol)
+        case Constants.strike:
+            return Roll(pinCount: 10, symbol: symbol)
+        default:
+            return Roll(pinCount: pinCount(for: symbol), symbol: symbol)
+        }
     }
 
     func pinCount(for score: Character) -> Int {
