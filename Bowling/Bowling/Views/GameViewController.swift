@@ -13,7 +13,7 @@ class GameViewController: UIViewController {
     @IBOutlet weak var totalLabel: UILabel!
 
     let presenter = GamePresenter()
-    var game = Game(scores: Constants.allSpares)
+    var game = Game(scores: Constants.onlySpares)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +22,7 @@ class GameViewController: UIViewController {
     }
 
     @IBAction func didTapLoadButton(_ sender: Any) {
-        presenter.loadGame(with: Constants.allStrikes) // TODO: change this
+        presenter.loadGame(with: Constants.onlyStrikes) // TODO: change this
     }
 
     @IBAction func didTapRollinButton(_ sender: Any) {
@@ -90,8 +90,11 @@ private extension GameViewController {
 
 private enum Constants {
 
-    static let allSpares = "5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/5"
-    static let allStrikes = "X X X X X X X X X X X X"
-    static let allGutters = "-- -- -- -- -- -- -- -- -- --"
+    static let onlySpares = "5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/5"
+    static let onlyStrikes = "X X X X X X X X X X X X"
+    static let onlyGutters = "-- -- -- -- -- -- -- -- -- --"
+    static let onlyNines = "9- 9- 9- 9- 9- 9- 9- 9- 9- 9-"
+    static let onlyNumbers = "17 23 81 23 44 51 61 71 25 61"
+    static let mixed = "12 X 7- 3/ 2- X X 71 2/ X X X"
     static let rollLink = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
 }
