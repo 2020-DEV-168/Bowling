@@ -110,7 +110,7 @@ private extension Frame {
     func createRoll(for symbol: Character, previousPinCount: Int) -> Roll {
         switch symbol {
         case Constants.spare:
-            return Roll(pinCount: 10 - previousPinCount, symbol: symbol)
+            return Roll(pinCount: previousPinCount.remainderToTen, symbol: symbol)
         case Constants.strike:
             return Roll(pinCount: 10, symbol: symbol)
         default:
@@ -123,7 +123,7 @@ private extension Frame {
         case "1"..."9":
             return score.wholeNumberValue!
         case Constants.strike:
-            return 10
+            return Constants.maximumPinCount
         default:
             return 0
         }
@@ -140,8 +140,16 @@ private extension String {
     }
 }
 
+private extension Int {
+
+    var remainderToTen: Int {
+        return Constants.maximumPinCount - self
+    }
+}
+
 private enum Constants {
 
+    static let maximumPinCount = 10
     static let spare: Character = "/"
     static let strike: Character = "X"
 }
