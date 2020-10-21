@@ -34,4 +34,4 @@ I deliberately "overdid" granular commits (non-building failing test, then faili
 
 I was hoping I could do some fancy one-liner like `frames.map { score(for: $0) }.reduce(0, +)` but the forward-going calculation of scoring prevented me to. For this reason I have to tell that the whole exercise is clever.
 
-![Preview](preview.png)
+![Preview](preview.png =409x)
