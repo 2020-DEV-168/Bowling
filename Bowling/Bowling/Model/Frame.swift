@@ -61,7 +61,7 @@ private extension Frame {
 
         switch scores.count {
         case 1:
-            rolls.append(Roll(pinCount: pinCount(for: Character(scores)), symbol: scores.first!))
+            rolls.append(createRoll(for: Character(scores)))
         case 2:
             rolls.append(contentsOf: createDoubleRolls(with: scores))
         case 3:
@@ -77,15 +77,11 @@ private extension Frame {
     func createDoubleRolls(with scores: String) -> [Roll] {
         var rolls = [Roll]()
 
-        let firstPinCount = pinCount(for: scores.first!)
-        rolls.append(Roll(pinCount: firstPinCount, symbol: scores.character(at: 0)))
+        rolls.append(createRoll(for: scores.character(at: 0)))
 
+        let firstPinCount = pinCount(for: scores.first!)
         let secondSymbol = scores.character(at: 1)
-        if secondSymbol == Constants.spare {
-            rolls.append(Roll(pinCount: 10 - firstPinCount, symbol: secondSymbol))
-        } else {
-            rolls.append(Roll(pinCount: pinCount(for: secondSymbol), symbol: secondSymbol))
-        }
+        rolls.append(createRoll(for: secondSymbol, previousPinCount: firstPinCount))
 
         return rolls
     }
@@ -94,25 +90,25 @@ private extension Frame {
         var rolls = [Roll]()
 
         let firstSymbol = scores.character(at: 0)
-        let firstPinCount = pinCount(for: firstSymbol)
-        rolls.append(Roll(pinCount: firstPinCount, symbol: firstSymbol))
+        rolls.append(createRoll(for: firstSymbol))
 
+        let firstPinCount = pinCount(for: firstSymbol)
         let secondSymbol = scores.character(at: 1)
-        let secondPinCount = pinCount(for: secondSymbol)
         rolls.append(createRoll(for: secondSymbol, previousPinCount: firstPinCount))
 
+        let secondPinCount = pinCount(for: secondSymbol)
         let thirdSymbol = scores.character(at: 2)
         rolls.append(createRoll(for: thirdSymbol, previousPinCount: secondPinCount))
 
         return rolls
     }
 
-    func createRoll(for symbol: Character, previousPinCount: Int) -> Roll {
+    func createRoll(for symbol: Character, previousPinCount: Int = 0) -> Roll {
         switch symbol {
         case Constants.spare:
             return Roll(pinCount: previousPinCount.remainderToTen, symbol: symbol)
         case Constants.strike:
-            return Roll(pinCount: 10, symbol: symbol)
+            return Roll(pinCount: Constants.maximumPinCount, symbol: symbol)
         default:
             return Roll(pinCount: pinCount(for: symbol), symbol: symbol)
         }
