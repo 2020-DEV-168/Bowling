@@ -21,8 +21,9 @@ class GameViewController: UIViewController {
         presenter.delegate = self
     }
 
-    @IBAction func didTapLoadButton(_ sender: Any) {
-        presenter.loadGame(with: Constants.onlyStrikes) // TODO: change this
+    @IBAction func didTapButton(_ sender: Any) {
+        let sender = sender as! UIButton
+        loadScores(from: sender.tag) // See tag field in Interface Builder
     }
 
     @IBAction func didTapRollinButton(_ sender: Any) {
@@ -56,6 +57,28 @@ extension GameViewController: GamePresenterDelegate {
     }
 }
 
+private extension GameViewController {
+
+    func loadScores(from tag: Int) {
+        switch tag {
+        case 0:
+            presenter.loadGame(with: Constants.onlyGutters)
+        case 1:
+            presenter.loadGame(with: Constants.onlyNumbers)
+        case 5:
+            presenter.loadGame(with: Constants.onlySpares)
+        case 9:
+            presenter.loadGame(with: Constants.onlyNines)
+        case 10:
+            presenter.loadGame(with: Constants.onlyStrikes)
+        case 42:
+            presenter.loadGame(with: Constants.everyKind)
+        default:
+            return
+        }
+    }
+}
+
 private enum Constants {
 
     static let onlySpares = "5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/5"
@@ -63,6 +86,6 @@ private enum Constants {
     static let onlyGutters = "-- -- -- -- -- -- -- -- -- --"
     static let onlyNines = "9- 9- 9- 9- 9- 9- 9- 9- 9- 9-"
     static let onlyNumbers = "17 23 81 23 44 51 61 71 25 61"
-    static let mixed = "12 X 7- 3/ 2- X X 71 2/ X X X"
+    static let everyKind = "12 X 7- 3/ 2- X X 71 2/ X X X"
     static let rollLink = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
 }
