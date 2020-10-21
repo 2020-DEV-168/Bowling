@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		C651F786253D8A83003089CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C651F785253D8A83003089CA /* AppDelegate.swift */; };
 		C651F788253D8A83003089CA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C651F787253D8A83003089CA /* SceneDelegate.swift */; };
-		C651F78A253D8A83003089CA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C651F789253D8A83003089CA /* ViewController.swift */; };
+		C651F78A253D8A83003089CA /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C651F789253D8A83003089CA /* GameViewController.swift */; };
 		C651F78D253D8A83003089CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C651F78B253D8A83003089CA /* Main.storyboard */; };
 		C651F78F253D8A84003089CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C651F78E253D8A84003089CA /* Assets.xcassets */; };
 		C651F792253D8A84003089CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C651F790253D8A84003089CA /* LaunchScreen.storyboard */; };
@@ -17,6 +17,8 @@
 		C6A32D06253DB6470038EA27 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A32D05253DB6470038EA27 /* Game.swift */; };
 		C6AE969D253F0B20003243A2 /* Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AE969C253F0B20003243A2 /* Frame.swift */; };
 		C6AE96A3253F2B2E003243A2 /* Roll.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AE96A2253F2B2E003243A2 /* Roll.swift */; };
+		C6D1A665253F7691008E6DB5 /* GamePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D1A664253F7691008E6DB5 /* GamePresenter.swift */; };
+		C6D1A675253F7FD3008E6DB5 /* FrameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D1A673253F7FD3008E6DB5 /* FrameCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,7 +35,7 @@
 		C651F782253D8A83003089CA /* Bowling.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bowling.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C651F785253D8A83003089CA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C651F787253D8A83003089CA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C651F789253D8A83003089CA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C651F789253D8A83003089CA /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		C651F78C253D8A83003089CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C651F78E253D8A84003089CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C651F791253D8A84003089CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -44,6 +46,8 @@
 		C6A32D05253DB6470038EA27 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		C6AE969C253F0B20003243A2 /* Frame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Frame.swift; sourceTree = "<group>"; };
 		C6AE96A2253F2B2E003243A2 /* Roll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Roll.swift; sourceTree = "<group>"; };
+		C6D1A664253F7691008E6DB5 /* GamePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePresenter.swift; sourceTree = "<group>"; };
+		C6D1A673253F7FD3008E6DB5 /* FrameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,16 +90,13 @@
 			isa = PBXGroup;
 			children = (
 				C6D1A691253F9ED4008E6DB5 /* Model */,
+				C6935777253F58A200204935 /* Views */,
+				C6D1A663253F767C008E6DB5 /* Presenter */,
 				C651F785253D8A83003089CA /* AppDelegate.swift */,
 				C651F787253D8A83003089CA /* SceneDelegate.swift */,
-				C651F789253D8A83003089CA /* ViewController.swift */,
-				C651F78B253D8A83003089CA /* Main.storyboard */,
 				C651F78E253D8A84003089CA /* Assets.xcassets */,
 				C651F790253D8A84003089CA /* LaunchScreen.storyboard */,
 				C651F793253D8A84003089CA /* Info.plist */,
-				C6AE96A2253F2B2E003243A2 /* Roll.swift */,
-				C6AE969C253F0B20003243A2 /* Frame.swift */,
-				C6A32D05253DB6470038EA27 /* Game.swift */,
 			);
 			path = Bowling;
 			sourceTree = "<group>";
@@ -107,6 +108,24 @@
 				C651F79E253D8A85003089CA /* Info.plist */,
 			);
 			path = BowlingTests;
+			sourceTree = "<group>";
+		};
+		C6935777253F58A200204935 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C651F78B253D8A83003089CA /* Main.storyboard */,
+				C651F789253D8A83003089CA /* GameViewController.swift */,
+				C6D1A673253F7FD3008E6DB5 /* FrameCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C6D1A663253F767C008E6DB5 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				C6D1A664253F7691008E6DB5 /* GamePresenter.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 		C6D1A691253F9ED4008E6DB5 /* Model */ = {
@@ -219,11 +238,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C651F78A253D8A83003089CA /* ViewController.swift in Sources */,
+				C651F78A253D8A83003089CA /* GameViewController.swift in Sources */,
 				C651F786253D8A83003089CA /* AppDelegate.swift in Sources */,
 				C6AE96A3253F2B2E003243A2 /* Roll.swift in Sources */,
 				C651F788253D8A83003089CA /* SceneDelegate.swift in Sources */,
+				C6D1A675253F7FD3008E6DB5 /* FrameCell.swift in Sources */,
 				C6A32D06253DB6470038EA27 /* Game.swift in Sources */,
+				C6D1A665253F7691008E6DB5 /* GamePresenter.swift in Sources */,
 				C6AE969D253F0B20003243A2 /* Frame.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
