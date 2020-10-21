@@ -77,11 +77,11 @@ private extension Frame {
     func createDoubleRolls(with scores: String) -> [Roll] {
         var rolls = [Roll]()
 
-        rolls.append(createRoll(for: scores.character(at: 0)))
+        let firstSymbol = scores.character(at: 0)
+        rolls.append(createRoll(for: firstSymbol))
 
-        let firstPinCount = pinCount(for: scores.first!)
         let secondSymbol = scores.character(at: 1)
-        rolls.append(createRoll(for: secondSymbol, previousPinCount: firstPinCount))
+        rolls.append(createRoll(for: secondSymbol, previousPinCount: pinCount(for: firstSymbol)))
 
         return rolls
     }
@@ -89,16 +89,11 @@ private extension Frame {
     func createTripleRolls(with scores: String) -> [Roll] {
         var rolls = [Roll]()
 
-        let firstSymbol = scores.character(at: 0)
-        rolls.append(createRoll(for: firstSymbol))
+        rolls.append(contentsOf: createDoubleRolls(with: scores))
 
-        let firstPinCount = pinCount(for: firstSymbol)
         let secondSymbol = scores.character(at: 1)
-        rolls.append(createRoll(for: secondSymbol, previousPinCount: firstPinCount))
-
-        let secondPinCount = pinCount(for: secondSymbol)
         let thirdSymbol = scores.character(at: 2)
-        rolls.append(createRoll(for: thirdSymbol, previousPinCount: secondPinCount))
+        rolls.append(createRoll(for: thirdSymbol, previousPinCount: pinCount(for: secondSymbol)))
 
         return rolls
     }
