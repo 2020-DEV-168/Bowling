@@ -42,6 +42,7 @@ struct Frame {
         return rolls.count == 3 ? rolls[2] : nil
     }
 
+    var score = 0
     private var rolls = [Roll]()
     private let isLastFrame: Bool
 

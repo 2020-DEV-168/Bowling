@@ -8,6 +8,7 @@
 class Game {
 
     var frames = [Frame]()
+    var totalScore = 0
 
     init(scores: String) {
         let allScores = scores.split(separator: Constants.scoresSeparator)
@@ -17,20 +18,23 @@ class Game {
 
         frames.append(contentsOf: firstFrames)
         frames.append(lastFrame)
-    }
 
-    func totalScore() -> Int {
-        var total: Int = 0
-
-        for index in 0...frames.count - 1 {
-            total += computeFrameScore(at: index)
-        }
-
-        return total
+        buildTotals()
     }
 }
 
 private extension Game {
+
+    func buildTotals() {
+        var currentTotal: Int = 0
+
+        for index in 0...frames.count - 1 {
+            currentTotal += computeFrameScore(at: index)
+            frames[index].score = currentTotal
+        }
+
+        totalScore = currentTotal
+    }
 
     func computeFrameScore(at index: Int) -> Int {
         let frame = frames[index]
