@@ -16,7 +16,7 @@ class GameTests: XCTestCase {
 
         let game = Game(scores: scores)
 
-        XCTAssertEqual(game.totalScore(), expectedTotal)
+        XCTAssertEqual(game.totalScore, expectedTotal)
     }
 
     func testGameContainingOnlyGutters() {
@@ -25,7 +25,7 @@ class GameTests: XCTestCase {
 
         let game = Game(scores: scores)
 
-        XCTAssertEqual(game.totalScore(), expectedTotal)
+        XCTAssertEqual(game.totalScore, expectedTotal)
     }
 
     func testGameContainingNumbersAndGutters() {
@@ -34,7 +34,7 @@ class GameTests: XCTestCase {
 
         let game = Game(scores: scores)
 
-        XCTAssertEqual(game.totalScore(), expectedTotal)
+        XCTAssertEqual(game.totalScore, expectedTotal)
     }
 
     func testGameContainingSpares() {
@@ -43,7 +43,7 @@ class GameTests: XCTestCase {
 
         let game = Game(scores: scores)
 
-        XCTAssertEqual(game.totalScore(), expectedTotal)
+        XCTAssertEqual(game.totalScore, expectedTotal)
     }
 
     func testGameContainingOnlyStrikes() {
@@ -52,7 +52,7 @@ class GameTests: XCTestCase {
 
         let game = Game(scores: scores)
 
-        XCTAssertEqual(game.totalScore(), expectedTotal)
+        XCTAssertEqual(game.totalScore, expectedTotal)
     }
 
     func testGameContainingMixedResults() {
@@ -61,6 +61,6 @@ class GameTests: XCTestCase {
 
         let game = Game(scores: scores)
 
-        XCTAssertEqual(game.totalScore(), expectedTotal)
+        XCTAssertEqual(game.totalScore, expectedTotal)
     }
 }
