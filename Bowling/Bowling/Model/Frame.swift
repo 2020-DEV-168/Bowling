@@ -8,12 +8,12 @@
 struct Frame {
 
     enum FrameType {
-        case normal, spare, strike, lastFrame
+        case normal, spare, strike
     }
 
     var frameType: FrameType {
         if isLastFrame {
-            return .lastFrame
+            return .normal
         } else {
             switch rolls.count {
             case 1:

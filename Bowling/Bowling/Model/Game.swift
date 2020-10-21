@@ -44,7 +44,7 @@ private extension Game {
             return computeSpareScore(at: index)
         case .strike:
             return computeStrikeScore(at: index)
-        case .normal, .lastFrame:
+        case .normal:
             return frame.pinCount
         }
     }
